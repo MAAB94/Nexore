@@ -51,7 +51,13 @@ export const COMPANY_INFO = {
   sectors: ['Defense', 'Government', 'Enterprise'],
   ceo: 'Muhammad Imran Anwar',
   phone: '0345 0062626',
+  phones: ['0345 0062626', '03215163366'],
   email: 'imran@nexore.org',
+  emails: [
+    { label: 'Executive & Inquiries', address: 'imran@nexore.org' },
+    { label: 'Operations', address: 'operations@nexore.org' },
+    { label: 'Technical Support', address: 'support@nexore.org' },
+  ],
   website: 'www.nexore.org',
   address: 'Office No 909, ATS, NASTP, Old Airport Rawalpindi, Pakistan',
   profilePdfUrl: '/assets/aistudio/NEXORE_Company_Profile_updated__1__b20066ee.pdf',

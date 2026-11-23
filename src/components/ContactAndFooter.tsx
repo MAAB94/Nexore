@@ -141,28 +141,40 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
                   <p className="text-xs text-slate-400">{COMPANY_INFO.authorization}</p>
                 </div>
 
-                <div className="p-6 space-y-2.5">
+                <div className="p-6 space-y-3">
                   <p className="text-[11px] font-mono uppercase tracking-wider text-[#C89B3C]">
-                    Executive Point of Contact
+                    Executive &amp; Department Contacts
                   </p>
                   <p className="text-sm font-semibold text-white">
                     {COMPANY_INFO.ceo} · Chief Executive Officer
                   </p>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 text-sm text-slate-200">
-                    <a
-                      href={`mailto:${COMPANY_INFO.email}`}
-                      className="inline-flex items-center gap-2 hover:text-[#60A5FA] transition-colors"
-                    >
-                      <Mail className="w-4 h-4 text-[#1D5FD6]" />
-                      <span>{COMPANY_INFO.email}</span>
-                    </a>
-                    <a
-                      href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
-                      className="inline-flex items-center gap-2 hover:text-[#60A5FA] transition-colors tabular-nums"
-                    >
-                      <Phone className="w-4 h-4 text-[#1D5FD6]" />
-                      <span>{COMPANY_INFO.phone}</span>
-                    </a>
+                  <div className="space-y-2 pt-1 text-sm text-slate-200">
+                    {COMPANY_INFO.emails.map((item) => (
+                      <div key={item.address} className="flex items-center justify-between gap-4">
+                        <a
+                          href={`mailto:${item.address}`}
+                          className="inline-flex items-center gap-2 hover:text-[#60A5FA] transition-colors"
+                        >
+                          <Mail className="w-4 h-4 text-[#1D5FD6] shrink-0" />
+                          <span>{item.address}</span>
+                        </a>
+                        <span className="text-[11px] font-mono text-slate-400">
+                          {item.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 border-t border-white/10 text-sm text-slate-200">
+                    {COMPANY_INFO.phones.map((phoneNumber) => (
+                      <a
+                        key={phoneNumber}
+                        href={`tel:${phoneNumber.replace(/\s+/g, '')}`}
+                        className="inline-flex items-center gap-2 hover:text-[#60A5FA] transition-colors tabular-nums"
+                      >
+                        <Phone className="w-4 h-4 text-[#1D5FD6] shrink-0" />
+                        <span>{phoneNumber}</span>
+                      </a>
+                    ))}
                   </div>
                 </div>
 
@@ -441,19 +453,33 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
 
             <div className="lg:col-span-3 space-y-3">
               <p className="font-mono text-[11px] uppercase tracking-wider text-slate-300">
-                Headquarters
+                Headquarters &amp; Contact
               </p>
               <div className="space-y-1.5 text-xs">
                 <p className="text-slate-300">{COMPANY_INFO.address}</p>
-                <p>
-                  <a
-                    href={`mailto:${COMPANY_INFO.email}`}
-                    className="text-[#60A5FA] hover:text-white transition-colors"
-                  >
-                    {COMPANY_INFO.email}
-                  </a>
-                </p>
-                <p className="tabular-nums text-slate-300">{COMPANY_INFO.phone}</p>
+                <div className="space-y-1 pt-1">
+                  {COMPANY_INFO.emails.map((item) => (
+                    <p key={item.address}>
+                      <a
+                        href={`mailto:${item.address}`}
+                        className="text-[#60A5FA] hover:text-white transition-colors"
+                      >
+                        {item.address}
+                      </a>
+                    </p>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1 tabular-nums text-slate-300">
+                  {COMPANY_INFO.phones.map((phoneNumber) => (
+                    <a
+                      key={phoneNumber}
+                      href={`tel:${phoneNumber.replace(/\s+/g, '')}`}
+                      className="hover:text-white transition-colors"
+                    >
+                      {phoneNumber}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
