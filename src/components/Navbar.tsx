@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { NexoreEmblem } from './NexoreMark';
 
 interface NavbarProps {
   onNavigateContact: () => void;
@@ -45,10 +44,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateContact }) => {
         {/* Zone 1: Single-line Brand Wordmark */}
         <a
           href="#top"
-          className="inline-flex items-center gap-3 text-white font-display font-bold text-lg tracking-tight whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D5FD6]"
+          aria-label="NEXORE Home"
+          className="inline-flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D5FD6]"
         >
-          <NexoreEmblem className="w-7 h-7 text-white shrink-0" />
-          <span className="tracking-[0.04em]">NEXORE</span>
+          <span className="h-10 px-3 py-1.5 rounded bg-white inline-flex items-center gap-2.5">
+            <img
+              src="/assets/nexore-mark.png"
+              alt=""
+              aria-hidden="true"
+              referrerPolicy="no-referrer"
+              className="h-full w-auto object-contain"
+            />
+            <img
+              src="/assets/nexore-wordmark.png"
+              alt="NEXORE"
+              referrerPolicy="no-referrer"
+              className="h-5 w-auto object-contain"
+            />
+          </span>
         </a>
 
         {/* Zone 2: 5 concise single-line navigation links */}

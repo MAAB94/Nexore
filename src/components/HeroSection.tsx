@@ -6,7 +6,6 @@ import {
   TECHNICAL_VERTICALS,
   TechnicalVertical,
 } from '../data/nexoreData';
-import { NexoreEmblem } from './NexoreMark';
 
 interface HeroSectionProps {
   onRequestConsultation: () => void;
@@ -109,8 +108,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Corporate Crest Header */}
               <div className="px-6 py-5 border-b border-white/10 flex items-center justify-between gap-4 bg-[#0D1D36]">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded bg-white flex items-center justify-center shrink-0">
-                    <NexoreEmblem className="w-8 h-8 text-[#071120]" />
+                  <div className="h-11 px-2.5 py-1.5 rounded bg-white flex items-center justify-center shrink-0">
+                    <img
+                      src="/assets/nexore-mark.png"
+                      alt="NEXORE (Private) Limited Emblem"
+                      referrerPolicy="no-referrer"
+                      className="h-full w-auto object-contain"
+                    />
                   </div>
                   <div>
                     <p className="font-display font-bold text-sm text-white tracking-wide">

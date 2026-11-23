@@ -15,7 +15,6 @@ import {
   SOFTWARE_PRODUCTS,
   TECHNICAL_VERTICALS,
 } from '../data/nexoreData';
-import { NexoreEmblem } from './NexoreMark';
 
 interface ContactAndFooterProps {
   preselectedTopic: string;
@@ -409,11 +408,13 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
         <div className="max-w-7xl mx-auto px-5 sm:px-8 space-y-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4 space-y-4">
-              <div className="flex items-center gap-3">
-                <NexoreEmblem className="w-7 h-7 text-white shrink-0" />
-                <span className="font-display font-bold text-base tracking-[0.04em] text-white">
-                  NEXORE
-                </span>
+              <div className="inline-block bg-white rounded-md px-3.5 py-2.5">
+                <img
+                  src="/assets/nexore-logo-full.png"
+                  alt="NEXORE (Private) Limited — Nexus at the Core, Value Beyond."
+                  referrerPolicy="no-referrer"
+                  className="h-14 w-auto object-contain"
+                />
               </div>
               <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
                 {COMPANY_INFO.legalName} — {COMPANY_INFO.authorization}. Authorized Technology

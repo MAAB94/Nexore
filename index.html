@@ -3,12 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/nexore-mark.png" />
     <title>NEXORE (Private) Limited — Enterprise Technology & Defense Solutions</title>
     <meta name="description" content="Authorized Technology Integrator and Reliable Solutions Provider for Defense, Government, and Corporate Sectors across Pakistan." />
     <meta property="og:title" content="NEXORE (Private) Limited — Enterprise Technology & Defense Solutions" />
     <meta property="og:description" content="Mission-ready systems, resilient infrastructure, and end-to-end capability delivery for Defense, Government, and Enterprise." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        function isBrowserExtensionError(source, stack, message) {
+          var extPattern = /^(chrome|moz|safari)-extension:\/\//i;
+          if (source && extPattern.test(source)) return true;
+          if (stack && /(chrome|moz|safari)-extension:\/\//i.test(stack)) return true;
+          if (message && /Failed to connect to MetaMask/i.test(message) && (!stack || /inpage\.js|extension/i.test(stack))) {
+            return true;
+          }
+          return false;
+        }
+        window.addEventListener(
+          'error',
+          function (event) {
+            var stack = event.error && event.error.stack ? String(event.error.stack) : '';
+            var msg = event.message ? String(event.message) : '';
+            if (isBrowserExtensionError(event.filename, stack, msg)) {
+              event.preventDefault();
+              event.stopImmediatePropagation();
+            }
+          },
+          true
+        );
+        window.addEventListener(
+          'unhandledrejection',
+          function (event) {
+            var reason = event.reason;
+            var stack = reason && reason.stack ? String(reason.stack) : '';
+            var msg = reason && reason.message ? String(reason.message) : String(reason || '');
+            if (isBrowserExtensionError('', stack, msg)) {
+              event.preventDefault();
+              event.stopImmediatePropagation();
+            }
+          },
+          true
+        );
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
